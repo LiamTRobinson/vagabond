@@ -6,9 +6,9 @@
 
 <div class="posts">
 	<% @post.each do |post| %>
-		
+
 		<div class="container cityShowPost">
-			<h1><%= post.title %></h1>
+			<h1><%= link_to post.title, post_path(:id => post.id)  %></h1>
 			<hr>
 			<p><%= post.content %></p>
 			<h4>Created on <%= post.created_at.strftime("%d %b. %Y %r %Z") %></h4>
