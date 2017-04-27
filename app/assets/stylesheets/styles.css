@@ -1,13 +1,19 @@
 /*Individual post show pages*/
 
 .individual-post-show {
-  margin: 20px;
+  text-align: center;
+  margin: 30px;
+  background: #f6f6f6;
+  padding: 20px;
 }
 
 .post-info {
   border: 2px solid lightgrey;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 10px;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .button, .edit-button {
@@ -29,4 +35,5 @@
 .edit-delete-section {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
