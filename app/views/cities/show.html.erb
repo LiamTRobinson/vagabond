@@ -1,2 +1,19 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<div class="jumbotron">
+	<div class="container cityBanner cityShowImage" style="background-image: url('<%= @city.photo_url %>');">
+		<h1 class="cityShowName"><%= @city.name %></h1>
+	</div>
+</div>
+
+<div class="posts">
+	<% @post.each do |post| %>
+		
+		<div class="container cityShowPost">
+			<h1><%= post.title %></h1>
+			<hr>
+			<p><%= post.content %></p>
+			<h4>Created on <%= post.created_at.strftime("%d %b. %Y %r %Z") %></h4>
+		</div>
+
+	<% end %>
+</div>
+
