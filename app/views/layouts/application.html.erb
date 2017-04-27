@@ -10,19 +10,24 @@
 
   <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <!-- <img alt="LOGO" src="..."> -->
-        NoVi
-      </a>
+    <div class="navbar-header" style="padding-bottom: 8px;">
+      <a class="navbar-brand" href="/" >NoVi</a>
     </div>
-    <ul class="nav navbar-nav">
     <% if @page == "city_show" %>
-      <li><a href="#"><%= link_to "New Post", new_city_post_path(@city), style: "color: white;" %></a></li>
+      <ul class="nav navbar-nav">
+        <li><a href="#"><%= link_to "New Post", new_city_post_path(@city), style: "color: white;" %></a></li>
+      </ul>
     <% end %>
-    </ul>
-  </div>
+    <% if @page == "new_post" || @page == "show_post" %>
+      <ul>
+        <li><a href="#"><%= link_to "Back", city_path(@city.id), style: "color: white"%></a></li>
+      </ul>
+    <% end %>
+    <% if @page == "edit_post" %>
+      <ul>
+        <li><a href="#"><%= link_to "Back", city_post_path(id: @post.id, city_id: @post.city.id), style: "color: white"%></a></li>
+      </ul>
+    <% end %>
 </nav>
     <%= yield %>
   </body>

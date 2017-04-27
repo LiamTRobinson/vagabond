@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
+    @city = @post.city
+    @page = "show_post"
   end
 
   def edit
     @post = Post.find(params[:id])
+    @page = "edit_post"
   end
 
   def destroy
@@ -21,6 +24,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @city = City.find(params[:city_id])
+    @page = "new_post"
   end
 
   def update
