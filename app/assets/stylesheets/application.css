@@ -28,7 +28,7 @@ a{
 .navbar {
 	padding: 0px 25px;
 	margin: 0px;
-	background-color: darkgrey;
+	background-color: black;
 	height: 100px;
     display: flex;
     justify-content: space-between;
@@ -38,6 +38,7 @@ a{
 	font-size: 2em;
 	font-weight: 500;
 	letter-spacing: 0.25em;
+	color: white;
 }
 
 .siteNameBanner h1 {
@@ -57,19 +58,6 @@ a{
     height: 50vh;
     width: 100vw;
 }
-
-.atlantaBanner {
-	background-image: url('http://www.dentons.com/~/media/Images/Website/Background%20Images/Offices/Atlanta/Atlanta_2.jpg');
-	background-size: cover;
-    height: 75vh;
-	width: 100vw;
-}
-.sanFranBanner {
-	background-image: url('https://wallpaperscraft.com/image/san_francisco_night_bridge_lights_58581_3840x2400.jpg');
-	background-size: cover;
-    height: 75vh;
-	width: 100vw;
-}
 .gradientLeft {
 		width: 100vw;
 		background: linear-gradient(90deg, rgba(0,0,0,0.3), rgb(0, 0, 0));
@@ -77,19 +65,47 @@ a{
 		height: 100%;
 }
 
-.londonBanner {
-	background-image: url('https://wallpaperscraft.com/image/london_height_buildings_sky_skyscrapers_687_1920x1080.jpg');
+.cityBanner {
 	background-size: cover;
     height: 75vh;
 	width: 100vw;
 }
-.gradientRight {
-		width: 300%;
-		background: rgb(0,0,0);
-		background: linear-gradient(90deg, rgb(9, 9, 9), rgba(0,0,0,0));
-		float: left;
-		height: 100%;
+
+.cityShowImage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
 }
+
+.cityShowName {
+	font-family: avenir;
+	font-size: 8em;
+	text-align: center;
+	padding-left: 0.15em;
+	letter-spacing: 0.15em;
+	background-color: rgba(255, 255, 255, 0.45);
+}
+
+.posts {
+
+}
+.cityShowPost {
+	margin: 0px auto;
+	margin-bottom: 25px;
+	max-width: 55%;
+	padding: 15px;
+	box-shadow: 5px 5px 10px black;
+}
+
+
+
+
+
+
+
+
+
 
 
 
