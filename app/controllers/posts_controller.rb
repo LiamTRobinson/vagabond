@@ -8,6 +8,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    city = @post.city_id
+    @post.delete
+    redirect_to "/cities/#{city}"
   end
 
   def create

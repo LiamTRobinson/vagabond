@@ -4,5 +4,7 @@
 
 <div class="edit-delete-section">
   <%= link_to 'Edit', edit_post_path(@post) %>
-  <button>Delete</button>
+  <%= form_for @post, url: "/posts/#{@post.id}", method: "DELETE" do |f| %>
+    <%= f.submit "Delete", data: { confirm: 'Are you sure?'} %>
+  <% end %>
 </div>
