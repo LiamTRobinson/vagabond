@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'cities/index'
 
-  get 'cities/show'
+  get 'cities/:id' => "cities#show", as: "city_show"
 
   root to: "cities#index"
 end

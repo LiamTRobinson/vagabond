@@ -58,18 +58,17 @@ a{
     width: 100vw;
 }
 
-.atlantaBanner {
-	background-image: url('http://www.dentons.com/~/media/Images/Website/Background%20Images/Offices/Atlanta/Atlanta_2.jpg');
+.cityBanner {
 	background-size: cover;
     height: 75vh;
 	width: 100vw;
 }
-.sanFranBanner {
+/*.sanFranBanner {
 	background-image: url('https://wallpaperscraft.com/image/san_francisco_night_bridge_lights_58581_3840x2400.jpg');
 	background-size: cover;
     height: 75vh;
 	width: 100vw;
-}
+}*/
 .gradientLeft {
 		width: 100vw;
 		background: linear-gradient(90deg, rgba(0,0,0,0.3), rgb(0, 0, 0));
@@ -77,19 +76,19 @@ a{
 		height: 100%;
 }
 
-.londonBanner {
+/*.londonBanner {
 	background-image: url('https://wallpaperscraft.com/image/london_height_buildings_sky_skyscrapers_687_1920x1080.jpg');
 	background-size: cover;
     height: 75vh;
 	width: 100vw;
-}
-.gradientRight {
+}*/
+/*.gradientRight {
 		width: 300%;
 		background: rgb(0,0,0);
 		background: linear-gradient(90deg, rgb(9, 9, 9), rgba(0,0,0,0));
 		float: left;
 		height: 100%;
-}
+}*/
 
 
 

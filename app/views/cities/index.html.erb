@@ -5,33 +5,14 @@
 	</div>
 </div>
 
+<% @cities.each do |city| %>
 <div class="jumbotron">
-	<div class="container atlantaBanner">
+	<div class="container cityBanner" style="background-image: url('<%= city.photo_url %>');">
 		<div class="gradientLeft">
 			<div class="cityName">
-				<!-- <h2>ATLANTA</h2> -->
+				<h2><%= link_to city.name, city_show_path(city) %></h2>
 			</div>
 		</div>
 	</div>
 </div>
-
-<!-- <div class="jumbotron">
-	<div class="container londonBanner">
-		<div class="gradientRight">
-			<div class="cityName">
-				<h2>LONDON</h2>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="jumbotron">
-	<div class="container sanFranBanner">
-		<div class="gradientLeft">
-			<div class="cityName">
-				<h2>San Fransisco</h2>
-			</div>
-		</div>
-	</div>
-</div> -->
-
+<% end %>
