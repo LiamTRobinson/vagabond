@@ -15,15 +15,18 @@ class PostsController < ApplicationController
   end
 
   def create
+    Post.create(content: post_params[:content], title: post_params[:title], city_id: params[:city_id])
+    redirect_to "/cities/#{params[:city_id]}"
   end
 
   def new
+    @post = Post.new
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to '/posts/' + params[:id]
+    redirect_to "/cities/#{@post.city.id}/posts/#{@post.id}"
   end
 
   private
