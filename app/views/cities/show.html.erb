@@ -8,12 +8,14 @@
 	<% @post.each do |post| %>
 
 		<div class="container cityShowPost">
-
 			<h1><%= link_to post.title, city_post_path(city_id: @city.id, id: post.id) %></h1>
-
 			<hr>
-			<p><%= post.content %></p>
+			<p><%= truncate(post.content, length:100) %>
+			<% if post.content.length > 100 %>
+				<strong><%= link_to 'Read more', city_post_path(city_id: @city.id, id: post.id) %></strong>
+			<% end %>
 			<h4>Created on <%= post.created_at.strftime("%d %b. %Y at %r %Z") %></h4>
+			<h6><%= distance_of_time_in_words(Time.now, post.created_at)%> ago</h6>
 		</div>
 
 	<% end %>

@@ -8,4 +8,5 @@ class CitiesController < ApplicationController
   	@post = @city.posts.order(created_at: :desc)
   	@page = "city_show"
   end
+
 end
