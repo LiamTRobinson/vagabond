@@ -18,7 +18,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: post_params[:content], title: post_params[:title], city_id: params[:city_id])
+    Post.create(content: post_params[:content],
+      title: post_params[:title],
+      city_id: params[:city_id],
+      user_id: current_user.id)
     redirect_to "/cities/#{params[:city_id]}"
   end
 
