@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-
-  resources :posts
-
-  get 'cities/index'
-
-  get 'cities/:id' => "cities#show", as: "city_show"
+	resources :cities do
+		resources :posts
+	end
 
   root to: "cities#index"
 

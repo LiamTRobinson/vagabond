@@ -3,8 +3,8 @@
 <%= @post.content %>
 
 <div class="edit-delete-section">
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  <%= form_for @post, url: "/posts/#{@post.id}", method: "DELETE" do |f| %>
+  <%= link_to 'Edit', edit_city_post_path(city_id: @post.city.id, id: @post.id) %>
+  <%= form_for @post, url: "/cities/#{@post.city.id}/posts/#{@post.id}", method: "DELETE" do |f| %>
     <%= f.submit "Delete", data: { confirm: 'Are you sure?'} %>
   <% end %>
 </div>

@@ -6,5 +6,6 @@ class CitiesController < ApplicationController
   def show
   	@city = City.find(params[:id])
   	@post = @city.posts.order(created_at: :desc)
+  	@page = "city_show"
   end
 end

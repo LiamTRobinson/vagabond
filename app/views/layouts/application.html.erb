@@ -12,11 +12,16 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <!-- <img alt="LOGO" src="..."> -->
         NoVi
       </a>
     </div>
+    <ul class="nav navbar-nav">
+    <% if @page == "city_show" %>
+      <li><a href="#"><%= link_to "New Post", new_city_post_path(@city), style: "color: white;" %></a></li>
+    <% end %>
+    </ul>
   </div>
 </nav>
     <%= yield %>
