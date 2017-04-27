@@ -45,6 +45,7 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap_form (2.7.0)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -82,6 +83,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    nested_form (0.3.2)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -160,11 +162,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap
+  bootstrap_form
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  nested_form
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.2)
