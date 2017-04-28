@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    city = @post.city_id
+    city = @post.city.slug
     @post.delete
     redirect_to "/cities/#{city}"
   end
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(content: post_params[:content],
       title: post_params[:title],
-      city_id: params[:city_id],
+      city_id: City.friendly.find(params[:city_id]).id,
       user_id: current_user.id)
     check_validation(@post)
     # redirect_to "/cities/#{params[:city_id]}"
@@ -29,14 +29,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @city = City.find(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
     @page = "new_post"
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to "/cities/#{@post.city.id}/posts/#{@post.id}"
+    redirect_to "/cities/#{@post.city.friendly_id}/posts/#{@post.id}"
   end
 
   private
@@ -52,7 +52,8 @@ class PostsController < ApplicationController
       flash[:errors] = error_object.capitalize + ' ' + error_message + '. Please correct and resubmit.'
       redirect_to :back
     else
-    redirect_to "/cities/#{params[:city_id]}"
+      friendly_id = City.friendly.find(params[:city_id]).slug
+      redirect_to "/cities/#{friendly_id}"
     end
   end
 
