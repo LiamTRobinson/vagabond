@@ -1,0 +1,12 @@
+<h1><%= @user.email %></h1>
+
+<img src="<%= @user.profile_picture_url %>">
+
+<h2>Cities Written About:</h2>
+<% @cities_and_post_quantity.each do |pair| %>
+	<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
+<% end %>
+
+<% if @user == current_user %>
+	<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
+<% end %>
