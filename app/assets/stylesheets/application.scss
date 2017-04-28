@@ -13,9 +13,7 @@
  *= require_tree .
  *= require_self
  */
-html {
-	
-}
+
 body {
 	position: relative;
 	margin: 0 auto;
@@ -96,7 +94,6 @@ a{
 	align-items: center;
 	margin-bottom: 50px;
 	height: 90vh;
-	/*HERE*/
 }
 
 .cityShowName {
@@ -108,9 +105,6 @@ a{
 	background-color: rgba(255, 255, 255, 0.45);
 }
 
-.posts {
-
-}
 .cityShowPost {
 	margin: 0px auto;
 	background-color: white;
@@ -189,12 +183,9 @@ a{
 	align-content: center;
 }
 
-
-
-
-
-
-
-
+.commentsAndAddToPlan {
+	display: flex;
+	justify-content: space-between;
+}
 
 
