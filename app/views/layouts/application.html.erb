@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Barrio|Bowlby+One+SC|Bungee|Bungee+Hairline|Cabin+Sketch|IM+Fell+English|Londrina+Outline|Londrina+Sketch|Viga" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -41,7 +42,7 @@
         <% if @page == "edit_post" %>
           <a href="#"><%= link_to "Back", city_post_path(id: @post.id, city_id: @post.city.id), style: "color: white"%></a>
         <% end %>
-      </div>   
+      </div>
 
     </nav>
 

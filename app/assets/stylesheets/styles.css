@@ -7,6 +7,116 @@
   padding: 20px;
 }
 
+
+
+.signup-button {
+  padding: 15px;
+  border: 2px solid white;
+  width: 80px;
+  margin: 0 auto;
+  color: white;
+  margin-top: 10px;
+  background: black;
+  opacity: .7;
+}
+
+.hero {
+  background: url(https://static.pexels.com/photos/197081/pexels-photo-197081.jpeg);
+  background-size: cover;
+  height: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  opacity : 0.76;
+  z-index: -100;
+}
+
+.hero-header {
+  font-size: 70px;
+  letter-spacing: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.hero-subheadline {
+  color: white;
+}
+
+.hp-section {
+  height: 350px;
+  border-top: 5px solid white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sect-2-left {
+  width: 65%;
+  height: 100%;
+  background: url(http://www.dentons.com/~/media/Images/Website/Background%20Images/Offices/Atlanta/Atlanta_2.jpg);
+  background-size: cover;
+}
+
+.sect-2-right {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  background: #2e2e2e;
+  align-items: center;
+}
+
+
+.sect-3-left {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  color: black;
+  background: white;
+  align-items: center;
+}
+
+.sect-3-right {
+  width: 65%;
+  height: 100%;
+  background: url(http://www.sftravel.com/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg);
+  background-size: cover;
+}
+
+.sect-4-left {
+  width: 65%;
+  height: 100%;
+  background: url(https://media.timeout.com/images/100644443/image.jpg);
+  background-size: cover;
+}
+
+.sect-4-right {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  background: #2e2e2e;
+  align-items: center;
+}
+
+.section-2 {
+  background: white;
+}
+
+.section-3 {
+  background: orange;
+}
+
+.section-4 {
+  background: pink;
+}
+
+
 .post-info {
   border: 2px solid lightgrey;
   margin-bottom: 20px;
