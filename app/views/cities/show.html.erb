@@ -10,6 +10,7 @@
 
 		<div class="container cityShowPost">
 			<h1><%= link_to post.title, city_post_path(city_id: @city.id, id: post.id) %></h1>
+			<h6><%= post.comments.length %> comments</h6>
 			<hr>
 			<p><%= truncate(post.content, length:100) %>
 			<% if post.content.length > 100 %>
