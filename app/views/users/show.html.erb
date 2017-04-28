@@ -18,11 +18,10 @@
 				<% end %>
 			</div>
 		</div>
-
+		<% if @user == current_user %>
 		<h1>PLANS</h1>
 		<hr>
 		<div class="scrollBox">
-		<% if @user == current_user %>
 			<% @user.cities.uniq.each do |city| %>
 				<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
 					<h2>Plan for <%= city.name %>:</h2>
