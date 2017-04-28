@@ -3,33 +3,41 @@
 		height: 100vh;
 	}
 </style>
-
-<div class="individual-post-show">
-
-<h1><%= @post.title %></h1>
-
-  <div class="post-info">
-    <%= @post.content %>
-  </div>
-  <h6><%= @post.comments.length %> comments</h6>
-
-  	<% if @post.user == current_user %>
-	  <div class="edit-delete-section">
-	    <%= link_to 'Edit', edit_city_post_path(city_id: @post.city.friendly_id, id: @post.id), class: 'button edit-button' %>
-	    <%= form_for @post, url: "/cities/#{@post.city.friendly_id}/posts/#{@post.id}", method: "DELETE" do |f| %>
-	      <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete #{@post.title}?"}, class: 'button delete-button' %>
-	    <% end %>
-	  </div>
-	<% end %>
-	<% if user_signed_in? %>
-	<%= link_to "New Comment", comments_new_path(@post.id), class: "btn btn-success" %>
-	<% end %>
-</div>
-<div class="postShowCommentsContainer">
-	<% @post.comments.each do |comment| %>
-		<div class="cityShowPost">
-			<p><%= comment.content %></p>
-			<p>by <%= link_to comment.user.email, user_show_path(comment.user.id) %></p>
+<!-- NOT SURE. SOMETIMES THIS WORKS, SOMETIMES IT DOESN'T -->
+<!-- I think it might depend on whether or not there are comments???  -->
+<div class="newPostForm commentPage">
+	
+	<div class="commentWithPosts">
+		<h1 style="text-align: center;"><%= @post.title %></h1>
+		<div class="post-info">
+			<%= @post.content %>
 		</div>
-	<% end %>
+		<h4><%= @post.comments.length %> comments</h4>
+
+		<% if @post.user == current_user %>
+			<div class="edit-delete-section">
+				<%= link_to 'Edit', edit_city_post_path(city_id: @post.city.friendly_id, id: @post.id), class: 'button edit-button' %>
+				<%= form_for @post, url: "/cities/#{@post.city.friendly_id}/posts/#{@post.id}", method: "DELETE" do |f| %>
+				  <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete #{@post.title}?"}, class: 'button delete-button' %>
+				<% end %>
+			</div>
+		<% end %>
+		<% if user_signed_in? %>
+			<button><%= link_to "New Comment", comments_new_path(@post.id), class: "btn btn-success" %></button>
+		<% end %>
+	</div>
+
+
+
+
+	<div class="postShowCommentsContainer">
+		<% @post.comments.each do |comment| %>
+			<div class="cityShowPost">
+				<p><%= comment.content %></p>
+				<p>by <%= link_to comment.user.email, user_show_path(comment.user.id) %></p>
+			</div>
+		<% end %>
+	</div>
+
 </div>
+
