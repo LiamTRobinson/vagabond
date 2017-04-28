@@ -188,4 +188,13 @@ a{
 	justify-content: space-between;
 }
 
-
+.postShowCommentsContainer {
+	margin-top: 50px;
+}
+.commentWithPosts{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
