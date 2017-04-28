@@ -5,7 +5,8 @@
 </div>
 
 <div class="posts">
-	<% @post.each do |post| %>
+	<%= will_paginate @posts %>
+	<% @posts.each do |post| %>
 
 		<div class="container cityShowPost">
 			<h1><%= link_to post.title, city_post_path(city_id: @city.id, id: post.id) %></h1>
@@ -18,7 +19,9 @@
 			<h5>by <%= post.user.email %></h5>
 			<h6>(<%= distance_of_time_in_words(Time.now, post.created_at)%> ago)</h6>
 		</div>
-
+		
 	<% end %>
+
+	<%= will_paginate @posts %>
 </div>
 

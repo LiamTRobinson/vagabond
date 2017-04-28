@@ -1,0 +1,7 @@
+<h1><%= current_user.email %></h1>
+
+<h2>Cities I've Written About:</h2>
+<% @cities_and_post_quantity.each do |pair| %>
+	<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
+<% end %>
+

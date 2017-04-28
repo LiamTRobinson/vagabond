@@ -27,6 +27,11 @@
         <a href="#"><%= link_to "Back", city_post_path(id: @post.id, city_id: @post.city.id), style: "color: white"%></a>
       <% end %>
     </div>
+    <% if user_signed_in? %>
+      <div class="nav-items-container">
+        <a href="#"><%= link_to "Profile", user_show_path(current_user.id), style: "color: white" %></a>
+      </div>
+    <% end %>
 </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
