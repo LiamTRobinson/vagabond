@@ -2,7 +2,7 @@
 	<h1><%= @user.email %></h1>
 	<h3>Member since: <%= @user.created_at.strftime("%b. %Y") %></h3>
 	<div class="userInfo">
-		<img src="<%= @user.profile_picture_url %>">
+		<img src="<%= @user.profile_picture_url %>" style="width: 250px; border-radius: 50%" >
 
 
 		<h2>Cities Written About:</h2>
@@ -16,7 +16,7 @@
 
 		<% @user.posts.each do |post| %>
 			<p><%= post.title %></p>
-			<p><%= post.city %></p>
+			<p><%= post.city.name %></p>
 			<p><%= post.content %></p>
 		<% end %>
 	</div>
