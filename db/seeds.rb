@@ -24,15 +24,18 @@ city3 = City.create(
 	)
 user1 = User.create(
 	email: "user3@user.com",
-	password: "password"
+	password: "password",
+	profile_picture_url: "https://img.memesuper.com/1a51902ef455a1a917c0e87b6fd05494_hnng-hnngh-meme_560-315.png"
 	)
 user2 = User.create(
 	email: "user1@user.com",
-	password: "password"
+	password: "password",
+	profile_picture_url: "https://i.ytimg.com/vi/28B6ncI92js/hqdefault.jpg"
 	)
 user3 = User.create(
 	email: "user2@user.com",
-	password: "password"
+	password: "password",
+	profile_picture_url: "http://i3.kym-cdn.com/entries/icons/original/000/019/616/41584.jpg"
 	)
 Post.create(
 	title: "ATL",
