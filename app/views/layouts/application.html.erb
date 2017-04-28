@@ -9,32 +9,45 @@
   </head>
 
   <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-header" style="padding-bottom: 8px;">
-      <a class="navbar-brand" href="/" >NoVi</a>
-    </div>
-    <div class="nav-items-container">
-      <a href="#"><%= link_to "Sign In", new_user_session_path, style: "color: white;" %></a>
-      <a href="#"><%= link_to "Log Out", destroy_user_session_path, style: "color: white;", method: "delete" %></a>
-      <a href="#"><%= link_to "Sign Up", new_user_registration_path, style: "color: white;" %></a>
-      <% if @page == "city_show" %>
-        <a href="#"><%= link_to "New Post", new_city_post_path(@city), style: "color: white;" %></a>
-      <% end %>
-      <% if @page == "new_post" || @page == "show_post" %>
-        <a href="#"><%= link_to "Back", city_path(@city.id), style: "color: white"%></a>
-      <% end %>
-      <% if @page == "edit_post" %>
-        <a href="#"><%= link_to "Back", city_post_path(id: @post.id, city_id: @post.city.id), style: "color: white"%></a>
-      <% end %>
-    </div>
-    <% if user_signed_in? %>
-      <div class="nav-items-container">
-        <a href="#"><%= link_to "Profile", user_show_path(current_user.id), style: "color: white" %></a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+      <div class="navbar-header" style="padding-bottom: 8px;">
+        <a class="navbar-brand" href="/" >NoVi</a>
       </div>
-    <% end %>
-</nav>
+
+      <% if user_signed_in? %>
+        <div class="nav-items-container">
+          <a href="#"><%= link_to "Profile", user_show_path(current_user.id), style: "color: white" %></a>
+        </div>
+      <% end %>
+
+      <div class="nav-items-container">
+        <% if !user_signed_in? %>
+          <a href="#"><%= link_to "Sign In", new_user_session_path, style: "color: white;" %></a>
+          <a href="#"><%= link_to "Sign Up", new_user_registration_path, style: "color: white;" %></a>
+        <% end %>
+        <% if user_signed_in? %>
+          <a href="#"><%= link_to "Log Out", destroy_user_session_path, style: "color: white;", method: "delete" %></a>
+        <% end %>
+      </div>
+
+      <div class="nav-items-container">
+        <% if @page == "city_show" %>
+          <a href="#"><%= link_to "New Post", new_city_post_path(@city), style: "color: white;" %></a>
+        <% end %>
+        <% if @page == "new_post" || @page == "show_post" %>
+          <a href="#"><%= link_to "Back", city_path(@city.id), style: "color: white"%></a>
+        <% end %>
+        <% if @page == "edit_post" %>
+          <a href="#"><%= link_to "Back", city_post_path(id: @post.id, city_id: @post.city.id), style: "color: white"%></a>
+        <% end %>
+      </div>   
+
+    </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

@@ -16,7 +16,7 @@
 				<strong><%= link_to 'Read more', city_post_path(city_id: @city.id, id: post.id) %></strong>
 			<% end %>
 			<h4>Created on <%= post.created_at.strftime("%d %b. %Y at %r %Z") %></h4>
-			<h5>by <%= post.user.email %></h5>
+			<h5>by <%= link_to "#{post.user.email}", user_show_path(post.user.id) %></h5>
 			<h6>(<%= distance_of_time_in_words(Time.now, post.created_at)%> ago)</h6>
 		</div>
 		

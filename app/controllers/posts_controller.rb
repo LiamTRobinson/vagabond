@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :destroy, :create, :new, :update]
   def show
     @post = Post.find(params[:id])
     @city = @post.city
