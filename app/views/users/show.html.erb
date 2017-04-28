@@ -2,23 +2,37 @@
 	<h1><%= @user.email %></h1>
 	<h3>Member since: <%= @user.created_at.strftime("%b. %Y") %></h3>
 	<div class="userInfo">
-		<img src="<%= @user.profile_picture_url %>" style="width: 250px; border-radius: 50%" >
 
 
-		<h2>Cities Written About:</h2>
-		<% @cities_and_post_quantity.each do |pair| %>
-			<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
-		<% end %>
+		<div class="userInfoBox">
+			<img src="<%= @user.profile_picture_url %>"  >
+			
+			<div class="userPostInfo">
+				<h2>Cities Written About:</h2>
+				<% @cities_and_post_quantity.each do |pair| %>
+					<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
+				<% end %>
 
-		<% if @user == current_user %>
-			<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
-		<% end %>
+				<% if @user == current_user %>
+					<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
+				<% end %>
+			</div>
+		</div>
 
-		<% @user.posts.each do |post| %>
-			<p><%= post.title %></p>
-			<p><%= post.city.name %></p>
-			<p><%= post.content %></p>
-		<% end %>
+
+		<h1>POSTS</h1>
+		<hr>
+		<div class="scrollBox">
+			<% @user.posts.each do |post| %>
+				<div class="cityShowPost">
+					<h2>Title: <%= post.title %></h2>
+					<p><%= post.content %></p>
+					<hr>
+					<p>Posted in: <%= post.city.name.upcase %> on <%= post.created_at.strftime("%b. %Y") %> </p>
+				</div>
+			<% end %>
+		</div>
+		
 	</div>
 </div>
 
