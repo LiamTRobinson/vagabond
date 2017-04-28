@@ -8,6 +8,12 @@
 <% end %>
 <h2>Number of Comments Made: <%= @user.comments.length %></h2>
 
+<% @user.posts.each do |post| %>
+	<p><%= post.title %></p>
+	<p><%= post.city %></p>
+	<p><%= post.content %></p>
+<% end %>
+
 <% if @user == current_user %>
 	<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
 <% end %>
