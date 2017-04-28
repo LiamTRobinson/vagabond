@@ -6,6 +6,7 @@
 <% @cities_and_post_quantity.each do |pair| %>
 	<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
 <% end %>
+<h2>Number of Comments Made: <%= @user.comments.length %></h2>
 
 <% if @user == current_user %>
 	<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
