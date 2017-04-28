@@ -15,6 +15,9 @@
 			  <p>
 			  <%= f.submit %>
 			  </p>
+			  <% if flash[:errors] %>
+					<div class="notice"><%= flash[:errors] %></div>
+				<% end %>
 			<% end %>
 	</div>
 
