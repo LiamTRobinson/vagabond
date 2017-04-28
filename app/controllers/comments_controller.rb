@@ -11,6 +11,6 @@ class CommentsController < ApplicationController
   		post_id: post.id,
   		content: params.require(:comment).permit(:content)[:content]
   		)
-  	redirect_to "/cities/#{post.city.id}/posts/#{post.id}"
+  	redirect_to "/cities/#{post.city.friendly_id}/posts/#{post.id}"
   end
 end
