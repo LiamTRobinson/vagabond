@@ -1,15 +1,30 @@
-<h1><%= @user.email %></h1>
+<div class="userForm">
+	<h1><%= @user.email %></h1>
+	<h3>Member since: <%= @user.created_at.strftime("%b. %Y") %></h3>
+	<div class="userInfo">
+		<img src="<%= @user.profile_picture_url %>" style="width: 250px; border-radius: 50%" >
 
-<img src="<%= @user.profile_picture_url %>" alt="<%= @user.email %>'s Profile" class="profilePicture">
 
-<h2>Cities Written About:</h2>
-<% @cities_and_post_quantity.each do |pair| %>
-	<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
-<% end %>
-<h2>Number of Comments Made: <%= @user.comments.length %></h2>
+		<h2>Cities Written About:</h2>
+		<% @cities_and_post_quantity.each do |pair| %>
+			<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
+		<% end %>
+
+		<% if @user == current_user %>
+			<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
+		<% end %>
+
+		<% @user.posts.each do |post| %>
+			<p><%= post.title %></p>
+			<p><%= post.city.name %></p>
+			<p><%= post.content %></p>
+		<% end %>
+	</div>
+</div>
+
+
 
 <% if @user == current_user %>
-	<button><%= link_to "Edit Profile", edit_user_registration_path %></button>
 	<% @user.cities.uniq.each do |city| %>
 		<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
 			<h2>Plan for <%= city.name %>:</h2>
