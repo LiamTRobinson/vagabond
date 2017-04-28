@@ -421,3 +421,5 @@ Post.create(
 	user_id: user3.id,
 	city_id: city1.id
 	)
+
+City.find_each(&:save)
