@@ -21,7 +21,7 @@
 </div>
 <div class="postShowCommentsContainer">
 	<% @post.comments.each do |comment| %>
-		<div>
+		<div class="cityShowPost">
 			<p><%= comment.content %></p>
 			<p>by <%= link_to comment.user.email, user_show_path(comment.user.id) %></p>
 		</div>
