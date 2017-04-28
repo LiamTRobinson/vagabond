@@ -19,11 +19,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: post_params[:content],
+    @post = Post.create(content: post_params[:content],
       title: post_params[:title],
       city_id: params[:city_id],
       user_id: current_user.id)
-    redirect_to "/cities/#{params[:city_id]}"
+    check_validation(@post)
+    # redirect_to "/cities/#{params[:city_id]}"
   end
 
   def new
@@ -43,4 +44,16 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content)
   end
+
+  def check_validation(post)
+    if post.errors.any?
+      error_object = post.errors.messages.keys.first.to_s
+      error_message = post.errors.messages.values.first[0].to_s
+      flash[:errors] = error_object.capitalize + ' ' + error_message + '. Please correct and resubmit.'
+      redirect_to :back
+    else
+    redirect_to "/cities/#{params[:city_id]}"
+    end
+  end
+
 end
