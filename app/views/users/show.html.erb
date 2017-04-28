@@ -23,3 +23,16 @@
 </div>
 
 
+
+<% if @user == current_user %>
+	<% @user.cities.uniq.each do |city| %>
+		<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
+			<h2>Plan for <%= city.name %>:</h2>
+			<ul>
+				<% @user.plan_items.select{|item| item.post.city_id == city.id}.each do |item| %>
+					<li><%= item.post.content %></li>
+				<% end %>
+			</ul>
+		<% end %>
+	<% end %>
+<% end %>

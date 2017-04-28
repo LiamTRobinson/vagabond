@@ -8,9 +8,18 @@
 	<%= will_paginate @posts %>
 	<% @posts.each do |post| %>
 
-		<div class="container cityShowPost">
+		<div class="container cityShowPost" id="<%= post.id %>">
 			<h1><%= link_to post.title, city_post_path(city_id: @city.id, id: post.id) %></h1>
-			<h6><%= post.comments.length %> comments</h6>
+			<h6 class="commentsAndAddToPlan">
+				<span><%= post.comments.length %> comments</span>
+				<% if user_signed_in? %>
+					<% if !current_user.plan_items.any? {|item| item.post_id == post.id} %>
+						<span><%= link_to "Add To City Plan", plan_items_create_path(post_id: post.id, page: @posts.current_page), method: "post" %></span>
+					<% else %>
+						<span><%= link_to "Remove From City Plan", plan_items_destroy_path(post_id: post.id, page: @posts.current_page), method: "delete" %></span>
+					<% end %>
+				<% end %>
+			</h6>
 			<hr>
 			<p><%= truncate(post.content, length:100) %>
 			<% if post.content.length > 100 %>
