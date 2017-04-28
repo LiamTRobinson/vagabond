@@ -14,9 +14,9 @@
 				<span><%= post.comments.length %> comments</span>
 				<% if user_signed_in? %>
 					<% if !current_user.plan_items.any? {|item| item.post_id == post.id} %>
-						<span><%= link_to "Add To City Plan", plan_items_create_path(post.id), method: "post" %></span>
+						<span><%= link_to "Add To City Plan", plan_items_create_path(post_id: post.id, page: @posts.current_page), method: "post" %></span>
 					<% else %>
-						<span><%= link_to "Remove From City Plan", plan_items_destroy_path(post.id), method: "delete" %></span>
+						<span><%= link_to "Remove From City Plan", plan_items_destroy_path(post_id: post.id, page: @posts.current_page), method: "delete" %></span>
 					<% end %>
 				<% end %>
 			</h6>

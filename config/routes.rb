@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 		resources :posts
 	end
 
-	post "posts/:post_id/plan_items/create" => "plan_items#create", as: "plan_items_create"
-	delete "posts/:post_id/plan_items/destroy" => "plan_items#destroy", as: "plan_items_destroy"
+	post "posts/:post_id/plan_items/create/:page" => "plan_items#create", as: "plan_items_create"
+	delete "posts/:post_id/plan_items/destroy/:page" => "plan_items#destroy", as: "plan_items_destroy"
 
 	get "posts/:post_id/comments/new" => "comments#new", as: "comments_new"
 	post "posts/:post_id/comments" => "comments#create", as: "comments_create"
