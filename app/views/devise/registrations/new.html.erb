@@ -4,10 +4,11 @@
   }
 </style>
 <div class="userForm">
-  <h2>Sign up</h2>
+  <h2>Sign Up</h2>
     <div class="userInfo">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
+
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true %>

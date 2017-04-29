@@ -5,8 +5,16 @@
 
 
 		<div class="userInfoBox">
-			<img src="<%= @user.profile_picture_url %>"  >
-			
+			<% if @user.profile_picture_url.nil? || @user.profile_picture_url=="" %>
+				<% if @user_photo.nil? %>
+					<img src="https://nz.junkfreejune.org/themes/base/production/images/default-profile.png" width="200px" height="200px">
+				<% else %>
+					<img src="<%= @user_photo %>" width="200px" height="200px">
+				<% end %>
+			<% else %>
+				<img src="<%= @user.profile_picture_url %>" width="200px" height="200px" >
+			<% end %>
+
 			<div class="userPostInfo">
 				<h2>Cities Written About:</h2>
 				<% @cities_and_post_quantity.each do |pair| %>
@@ -33,8 +41,8 @@
 				<% end %>
 			<% end %>
 		<% end %>
-		</div>	
-		
+		</div>
+
 		<h1>POSTS</h1>
 		<hr>
 		<div class="scrollBox">
@@ -46,7 +54,7 @@
 					<p>Posted in: <%= post.city.name.upcase %> on <%= post.created_at.strftime("%b. %Y") %> </p>
 				</div>
 			<% end %>
-		</div>	
+		</div>
 
 	</div>
 </div>
