@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @city = @post.city
     @page = "show_post"
+    
   end
 
   def edit

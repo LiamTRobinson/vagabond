@@ -32,9 +32,15 @@
 
 	<div class="postShowCommentsContainer">
 		<% @post.comments.each do |comment| %>
-			<div class="cityShowPost">
-				<p><%= comment.content %></p>
-				<p>by <%= link_to comment.user.email, user_show_path(comment.user.id) %></p>
+			<div class="cityShowPost postComments">
+				<div class="userPhoto">
+					<img src="<%= comment.user.profile_picture_url %>" alt="" width="200px">
+					<!-- USER PHOTO HERE -->
+				</div>
+				<div class="userComment">
+					<p><%= comment.content %></p>
+					<p>by <%= link_to comment.user.email, user_show_path(comment.user.id) %></p>
+				</div>
 			</div>
 		<% end %>
 	</div>
