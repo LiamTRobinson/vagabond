@@ -10,6 +10,11 @@
       <%= devise_error_messages! %>
 
       <div class="field">
+        <%= f.label :profile_picture_url %><br />
+        <%= f.text_field :profile_picture_url %>
+      </div>
+
+      <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
