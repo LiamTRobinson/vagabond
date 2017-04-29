@@ -12,10 +12,5 @@ class UsersController < ApplicationController
     avatar_info = HTTParty.get("http://www.avatarapi.com/avatar.asmx/GetProfile?email=#{@user.email}&username=nomadvice&password=nomadvice")
     @user_name = avatar_info["profile"]["Name"]
     @user_photo = avatar_info["profile"]["Image"]
-    if ((@user.profile_picture_url.nil? || @user.profile_picture_url == "") && @user_photo.nil?)
-      @user.update(profile_picture_url: "https://nz.junkfreejune.org/themes/base/production/images/default-profile.png")
-    elsif (@user.profile_picture_url.nil? || @user.profile_picture_url == "")
-      @user.update(profile_picture_url: "#{@user_photo}")
-    end
   end
 end
