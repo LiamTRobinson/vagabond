@@ -1,5 +1,9 @@
 <div class="userForm">
-	<h1><%= @user.email %></h1>
+	<% if @user_name.nil? %>
+		<h1><%= @user.email %></h1>
+	<% else %>
+		<h1><%= @user_name %></h1>
+	<% end %>
 	<h3>Member since: <%= @user.created_at.strftime("%b. %Y") %></h3>
 	<div class="userInfo">
 
