@@ -4,10 +4,10 @@ class User < ApplicationRecord
   	before_create :find_user_info
 
   	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  	has_many :posts
+  	has_many :posts, dependent: :destroy
   	has_many :cities, through: :posts
-  	has_many :comments
-  	has_many :plan_items
+  	has_many :comments, dependent: :destroy
+  	has_many :plan_items, dependent: :destroy
 
   	private
   		def find_user_info
