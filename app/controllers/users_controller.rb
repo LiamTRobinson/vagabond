@@ -9,8 +9,5 @@ class UsersController < ApplicationController
   		posts = Post.where("user_id = #{@user.id} and city_id = #{city.id}").all
   		@cities_and_post_quantity << ({ name: cityname, post_num: posts.length })
   	end
-    avatar_info = HTTParty.get("http://www.avatarapi.com/avatar.asmx/GetProfile?email=#{@user.email}&username=nomadvice&password=nomadvice")
-    @user_name = avatar_info["profile"]["Name"]
-    @user_photo = avatar_info["profile"]["Image"]
   end
 end
