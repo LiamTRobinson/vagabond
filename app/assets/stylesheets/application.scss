@@ -132,32 +132,17 @@ a{
     justify-content: flex-end;
 }
 
-.postForm,
-.userForm {
+.formPage {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	margin: 0px auto;
 }
-.postForm h1,
-.userForm h1 {
+.formPage h1 {
 	letter-spacing: 0.05em;
 }
-.form h2 {
-	margin-bottom: -10px;
-}
-.form {
-	border-radius: 2%;
-	float: left;
-	background-color: rgba(255, 255, 255, 0.75);
-	width: 250px;
-	padding: 25px;
-	display: flex;
-	justify-content: center;
-}
-
-.newPostForm {
+.formContainer {
 	border: 5px solid black;
 	margin: 0px auto;
 	margin-bottom: 25px;
@@ -166,6 +151,42 @@ a{
 	padding: 50px;
 	box-shadow: 5px 5px 10px black;
 	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+.fieldContainer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.field {
+	margin-left: 5%;
+}
+.submitContainer {
+	display: flex;
+	justify-content: center;
+	margin: 5%;
+}
+
+.submit {
+	background: #72dba3;
+	border-radius: 500px;
+	border-style: none;
+	font-size: 15px;
+}
+.delete {
+	border-radius: 500px;
+	border-style: none;
+	font-size: 15px;
+	background: #e06969;
+}
+.redirect {
+	background: #e0d079;
+	border-radius: 500px;
+	border-style: none;
+	font-size: 15px;
 }
 
 .userInfo {

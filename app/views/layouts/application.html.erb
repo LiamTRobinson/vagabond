@@ -35,13 +35,13 @@
         <% if @page == "city_show" %>
           <a href="#"><%= link_to "New Post", new_city_post_path(@city), style: "color: white;" %></a>
         <% end %>
-        <% if @page == "new_post" || @page == "show_post" %>
-          <a href="#"><%= link_to "Back", city_path(@city.id), style: "color: white"%></a>
+      </div>
+
+      <div class="nav-items-container">
+        <% if @page != "city_index" %>
+          <a href="#"><%= link_to "Back", :back, style: "color: white;" %></a>
         <% end %>
-        <% if @page == "edit_post" %>
-          <a href="#"><%= link_to "Back", city_post_path(id: @post.id, city_id: @post.city.id), style: "color: white"%></a>
-        <% end %>
-      </div>   
+      </div>
 
     </nav>
 
