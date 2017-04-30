@@ -131,6 +131,10 @@ a{
     flex-direction: column;
     justify-content: flex-end;
 }
+.cityShowPostTopRow {
+	display: flex;
+	justify-content: space-between;
+}
 
 .formPage {
 	display: flex;
@@ -236,4 +240,14 @@ a{
 	justify-content: center;
 	align-content: center;
 	align-items: center;
+}
+
+.postsEnds {
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 20px;
+}
+
+.pageSelect {
+	font-size: 20px;
 }

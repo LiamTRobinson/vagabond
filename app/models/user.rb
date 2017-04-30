@@ -12,7 +12,6 @@ class User < ApplicationRecord
   	private
   		def find_user_info
   			avatar_info = HTTParty.get("http://www.avatarapi.com/avatar.asmx/GetProfile?email=#{self.email}&username=nomadvice&password=nomadvice")
-  			binding.pry
   			user_name = avatar_info["profile"]["Name"]
   			user_photo = avatar_info["profile"]["Image"]
   			if (!user_name.nil?)
