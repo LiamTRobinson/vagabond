@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
   def index
   	@cities = City.all
+  	@page = "city_index"
   end
 
   def show
