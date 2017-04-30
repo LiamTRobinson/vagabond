@@ -1,23 +1,15 @@
 <div class="userForm">
-	<% if @user_name.nil? %>
+	<% if @user.user_name.nil? %>
 		<h1><%= @user.email %></h1>
 	<% else %>
-		<h1><%= @user_name %></h1>
+		<h1><%= @user.user_name %></h1>
 	<% end %>
 	<h3>Member since: <%= @user.created_at.strftime("%b. %Y") %></h3>
 	<div class="userInfo">
 
 
 		<div class="userInfoBox">
-			<% if @user.profile_picture_url.nil? || @user.profile_picture_url=="" %>
-				<% if @user_photo.nil? %>
-					<img src="https://nz.junkfreejune.org/themes/base/production/images/default-profile.png" width="200px" height="200px">
-				<% else %>
-					<img src="<%= @user_photo %>" width="200px" height="200px">
-				<% end %>
-			<% else %>
-				<img src="<%= @user.profile_picture_url %>" width="200px" height="200px" >
-			<% end %>
+			<img src="<%= @user.profile_picture_url %>" width="200px" height="200px" >
 
 			<div class="userPostInfo">
 				<h2>Cities Written About:</h2>
