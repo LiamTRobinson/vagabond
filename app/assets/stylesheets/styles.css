@@ -7,6 +7,10 @@
   padding: 20px;
 }
 
+.userForm {
+  text-align: center;
+}
+
 .post-info {
   border: 2px solid lightgrey;
   margin-bottom: 20px;
@@ -15,6 +19,26 @@
   margin: 0 auto;
   margin-bottom: 30px;
 }
+
+.submit {
+  padding: 10px;
+}
+
+.btn-success {
+  font-size: 13px;
+}
+
+.user-show-image {
+  width: 150px;
+  height: 150px;
+}
+
+.user-comment-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px
+}
+
 
 .button, .edit-button {
     background-color: lightgrey;
