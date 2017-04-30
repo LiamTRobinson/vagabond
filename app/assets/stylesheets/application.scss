@@ -96,6 +96,8 @@ a{
 	display: flex;
 	justify-content: center;
 	align-content: center;
+	box-shadow: inset 25px 25px 100px #000000;
+
 }
 
 .cityShowImage {
@@ -237,3 +239,18 @@ a{
 	align-content: center;
 	align-items: center;
 }
+
+.cityComments {
+	padding: 50px;
+}
+
+.paginate {
+	padding: 50px;
+}
+
+
+
+
+
+
+
