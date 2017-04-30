@@ -1,7 +1,7 @@
 <!-- NOT SURE. SOMETIMES THIS WORKS, SOMETIMES IT DOESN'T -->
 <!-- I think it might depend on whether or not there are comments???  -->
 <div class="formContainer commentPage">
-	
+
 	<div class="commentWithPosts">
 		<h1 style="text-align: center;"><%= @post.title %></h1>
 		<div class="post-info">
@@ -16,7 +16,7 @@
 				  <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete #{@post.title}?"}, class: 'button delete-button' %>
 				<% end %>
 			</div>
-		<% end %>
+		<% end %><br>
 		<% if user_signed_in? %>
 			<button class="submit"><%= link_to "New Comment", comments_new_path(@post.id), class: "btn btn-success" %></button>
 		<% end %>
@@ -30,7 +30,7 @@
 		<% @post.comments.each do |comment| %>
 			<div class="cityShowPost postComments">
 				<div class="userPhoto">
-					<img src="<%= comment.user.profile_picture_url %>" alt="" width="200px">
+					<img class="user-comment-thumbnail" src="<%= comment.user.profile_picture_url %>" alt="">
 					<!-- USER PHOTO HERE -->
 				</div>
 				<div class="userComment">
