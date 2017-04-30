@@ -133,6 +133,10 @@ a{
     flex-direction: column;
     justify-content: flex-end;
 }
+.cityShowPostTopRow {
+	display: flex;
+	justify-content: space-between;
+}
 
 .formPage {
 	display: flex;
@@ -240,6 +244,7 @@ a{
 	align-items: center;
 }
 
+<<<<<<< HEAD
 .cityComments {
 	padding: 50px;
 }
@@ -254,3 +259,14 @@ a{
 
 
 
+=======
+.postsEnds {
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 20px;
+}
+
+.pageSelect {
+	font-size: 20px;
+}
+>>>>>>> 556ac35cbcf07278f5adcdede5e828aa421f5552

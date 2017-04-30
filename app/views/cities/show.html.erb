@@ -5,6 +5,7 @@
 </div>
 
 <div class="posts">
+<<<<<<< HEAD
 	<div class="cityComments">
 		<%= will_paginate @posts %>
 		<% @posts.each do |post| %>		
@@ -31,6 +32,48 @@
 			</div>
 		<% end %>
 		<%= will_paginate @posts %>
+=======
+	<div class="postsEnds">
+		<div>
+			<select class="redirect" id="sort-value" data-city="<%= @city.id %>">
+				<option value="newest">Newest</option>
+				<option value="oldest">Oldest</option>
+				<option value="plan_popularity">Plan Popularity</option>
+			</select>
+			<button class="submit" id="sort-button">Sort</button>
+		</div>
+		<%= will_paginate @posts, class: "pageSelect"%>
+	</div>
+
+	<% if @order == "newest" %>
+		<% @posts.order(created_at: :desc).each do |post| %>
+			<%= render "ordered_post_index", post: post %>
+		<% end %>
+	<% end %>
+
+	<% if @order == "oldest" %>
+		<% @posts.order(:created_at).each do |post| %>
+			<%= render "ordered_post_index", post: post %>
+		<% end %>
+	<% end %>
+
+	<% if @order == "plan_popularity" %>
+		<% @posts.order(plan_items_count: :desc).each do |post| %>
+			<%= render "ordered_post_index", post: post %>
+		<% end %>
+	<% end %>
+	<script type="text/javascript">
+		$(function() {
+			$("#sort-button").on("click", function() {
+				var sort = $("#sort-value").val();
+				var city = $("#sort-value").data("city");
+				window.location.replace(`/cities/${city}?order=${sort}`);
+			});
+		});
+	</script>
+	<div class="postsEnds">
+		<%= will_paginate @posts, class: "pageSelect" %>
+>>>>>>> 556ac35cbcf07278f5adcdede5e828aa421f5552
 	</div>
 </div>
 

@@ -6,8 +6,8 @@ class CitiesController < ApplicationController
 
   def show
   	@city = City.friendly.find(params[:id])
-  	@posts = @city.posts.paginate(:page => params[:page], :per_page => 10).order(created_at: :desc)
+  	@posts = @city.posts.paginate(:page => params[:page], :per_page => 10)
   	@page = "city_show"
+  	@order = params[:order]
   end
-
 end

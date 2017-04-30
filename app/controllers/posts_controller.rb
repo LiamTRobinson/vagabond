@@ -2,14 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy, :create, :new, :update]
   def show
     @post = Post.find(params[:id])
-    @city = @post.city
-    @page = "show_post"
-    
+    @city = @post.city  
   end
 
   def edit
     @post = Post.find(params[:id])
-    @page = "edit_post"
   end
 
   def destroy
@@ -23,7 +20,8 @@ class PostsController < ApplicationController
     @post = Post.create(content: post_params[:content],
       title: post_params[:title],
       city_id: City.friendly.find(params[:city_id]).id,
-      user_id: current_user.id)
+      user_id: current_user.id
+      )
     check_validation(@post)
     # redirect_to "/cities/#{params[:city_id]}"
   end
@@ -54,7 +52,7 @@ class PostsController < ApplicationController
       redirect_to :back
     else
       friendly_id = City.friendly.find(params[:city_id]).slug
-      redirect_to "/cities/#{friendly_id}"
+      redirect_to "/cities/#{friendly_id}?order=newest"
     end
   end
 

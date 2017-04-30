@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   	cities = @user.cities.select(:name, :id).distinct
   	@cities_and_post_quantity = []
+    @cities = City.all
   	cities.each do |city|
   		cityname = city[:name]
   		posts = Post.where("user_id = #{@user.id} and city_id = #{city.id}").all
