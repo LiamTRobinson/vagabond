@@ -96,6 +96,8 @@ a{
 	display: flex;
 	justify-content: center;
 	align-content: center;
+	box-shadow: inset 25px 25px 100px #000000;
+
 }
 
 .cityShowImage {
@@ -242,6 +244,22 @@ a{
 	align-items: center;
 }
 
+<<<<<<< HEAD
+.cityComments {
+	padding: 50px;
+}
+
+.paginate {
+	padding: 50px;
+}
+
+
+
+
+
+
+
+=======
 .postsEnds {
 	display: flex;
 	justify-content: space-around;
@@ -251,3 +269,4 @@ a{
 .pageSelect {
 	font-size: 20px;
 }
+>>>>>>> 556ac35cbcf07278f5adcdede5e828aa421f5552
