@@ -32,8 +32,15 @@ body {
 .cityName h2 a {
 	color: white;
 	font-size: 3em;
+	font-weight: 100;
+	letter-spacing: 0.25em;
+	padding-left: 0.25em;
+	transition: 1s;
 }
-
+.cityName h2 a:hover {
+	text-shadow: -7px 7px black;
+	transition: 0.4s;
+}
 
 a{
 	text-decoration: none;
@@ -73,10 +80,13 @@ a{
     width: 100vw;
 }
 .gradientLeft {
-		width: 100vw;
-		background: linear-gradient(90deg, rgba(0,0,0,0.3), rgb(0, 0, 0));
-		float: right;
-		height: 100%;
+	width: 100vw;
+	background: linear-gradient(90deg, rgba(0,0,0,0.3), rgb(0, 0, 0));
+	float: right;
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cityBanner {
@@ -109,9 +119,17 @@ a{
 	margin: 0px auto;
 	background-color: white;
 	margin-bottom: 25px;
-	max-width: 55%;
 	padding: 15px;
 	box-shadow: 5px 5px 10px black;
+}
+.postComments {
+	display: flex;
+}
+.userComment {
+	padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .formPage {
