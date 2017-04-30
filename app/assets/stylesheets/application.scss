@@ -131,6 +131,10 @@ a{
     flex-direction: column;
     justify-content: flex-end;
 }
+.cityShowPostTopRow {
+	display: flex;
+	justify-content: space-between;
+}
 
 .formPage {
 	display: flex;

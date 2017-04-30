@@ -5,33 +5,34 @@
 </div>
 
 <div class="posts">
-	<%= will_paginate @posts %>
-	<% @posts.each do |post| %>
-
-
-
-		<div class="container cityShowPost" id="<%= post.id %>">
-			<h1><%= link_to post.title, city_post_path(city_id: @city.friendly_id, id: post.id) %></h1>
-			<h6 class="commentsAndAddToPlan">
-				<span><%= post.comments.length %> comments</span>
-				<% if user_signed_in? %>
-					<% if !current_user.plan_items.any? {|item| item.post_id == post.id} %>
-						<span><%= link_to "Add To City Plan", plan_items_create_path(post_id: post.id, page: @posts.current_page), method: "post" %></span>
-					<% else %>
-						<span><%= link_to "Remove From City Plan", plan_items_destroy_path(post_id: post.id, page: @posts.current_page), method: "delete" %></span>
-					<% end %>
-				<% end %>
-			</h6>
-			<hr>
-			<p><%= truncate(post.content, length:100) %>
-			<% if post.content.length > 100 %>
-				<strong><%= link_to 'Read more', city_post_path(city_id: @city.friendly_id, id: post.id) %></strong>
-			<% end %>
-			<h4>Created on <%= post.created_at.strftime("%d %b. %Y at %r %Z") %></h4>
-			<h5>by <%= link_to "#{post.user.email}", user_show_path(post.user.id) %></h5>
-			<h6>(<%= distance_of_time_in_words(Time.now, post.created_at)%> ago)</h6>
+	<div class="postsHeader">
+		<div>
+			<select class="redirect" id="sort-value" data-city="<%= @city.id %>">
+				<option value="newest">Newest</option>
+				<option value="oldest">Oldest</option>
+				<option value="plan_popularity">Plan Popularity</option>
+			</select>
+			<button class="submit" id="sort-button">Sort</button>
 		</div>
+	<%= will_paginate @posts %>
+	</div>
 
+	<% if @order == "newest" %>
+		<% @posts.order(created_at: :desc).each do |post| %>
+			<%= render "ordered_post_index", post: post %>
+		<% end %>
+	<% end %>
+
+	<% if @order == "oldest" %>
+		<% @posts.order(:created_at).each do |post| %>
+			<%= render "ordered_post_index", post: post %>
+		<% end %>
+	<% end %>
+
+	<% if @order == "plan_popularity" %>
+		<% @posts.order(plan_items_count: :desc).each do |post| %>
+			<%= render "ordered_post_index", post: post %>
+		<% end %>
 	<% end %>
 
 	<%= will_paginate @posts %>

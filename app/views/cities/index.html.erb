@@ -10,7 +10,7 @@
 	<div class="container cityBanner" style="background-image: url('<%= city.photo_url %>');">
 		<div class="gradientLeft">
 			<div class="cityName">
-				<h2><%= link_to city.name.upcase, city_path(city) %></h2>
+				<h2><%= link_to city.name.upcase, city_path(id: city.id, order: "newest") %></h2>
 			</div>
 		</div>
 	</div>
