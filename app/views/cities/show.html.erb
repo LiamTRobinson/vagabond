@@ -5,7 +5,7 @@
 </div>
 
 <div class="posts">
-	<div class="postsHeader">
+	<div class="postsEnds">
 		<div>
 			<select class="redirect" id="sort-value" data-city="<%= @city.id %>">
 				<option value="newest">Newest</option>
@@ -14,7 +14,7 @@
 			</select>
 			<button class="submit" id="sort-button">Sort</button>
 		</div>
-	<%= will_paginate @posts %>
+		<%= will_paginate @posts, class: "pageSelect"%>
 	</div>
 
 	<% if @order == "newest" %>
@@ -34,7 +34,8 @@
 			<%= render "ordered_post_index", post: post %>
 		<% end %>
 	<% end %>
-
-	<%= will_paginate @posts %>
+	<div class="postsEnds">
+		<%= will_paginate @posts, class: "pageSelect" %>
+	</div>
 </div>
 
