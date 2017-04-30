@@ -26,7 +26,7 @@
 		<h1>PLANS</h1>
 		<hr>
 		<div class="scrollBox">
-			<% @user.cities.uniq.each do |city| %>
+			<% @cities.each do |city| %>
 				<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
 					<h2>Plan for <%= city.name %>:</h2>
 					<ul>
