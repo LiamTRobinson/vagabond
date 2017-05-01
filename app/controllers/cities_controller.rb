@@ -1,4 +1,6 @@
 class CitiesController < ApplicationController
+  include UserHelper
+  before_action :redirect_unless_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
   	@cities = City.all
