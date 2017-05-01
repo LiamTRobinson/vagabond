@@ -43,15 +43,6 @@
         <h4><%= f.label :confirm_old_password %></h4>
         <%= f.password_field :current_password, autocomplete: "off", class: "field" %>
       </div>
-      <% if current_user.is_admin? %>
-        <div class="fieldContainer">
-          <h4><%= f.label :is_admin? %></h4>
-          <%= f.label :is_admin?, "True" %>
-          <%= f.radio_button(:is_admin?, true) %>
-          <%= f.label :is_admin?, "False" %>
-          <%= f.radio_button(:is_admin?, false) %>
-        </div>
-      <% end %>
 
       <div class="submitContainer">
         <button class="submit"><%= f.submit "Update", class: "submit" %></button>

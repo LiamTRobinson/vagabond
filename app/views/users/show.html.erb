@@ -17,8 +17,11 @@
 					<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
 				<% end %>
 
-				<% if @user == current_user || current_user.is_admin? %>
+				<% if @user == current_user  %>
 					<button class="submit"><%= link_to "Edit Profile", edit_user_registration_path %></button>
+				<% end %>
+				<% if current_user.is_admin? %>
+					<button class="redirect"><%= link_to "Edit Permissions", user_edit_path(@user.id) %></button>
 				<% end %>
 			</div>
 		</div>

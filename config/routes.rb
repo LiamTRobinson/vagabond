@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 	post "posts/:post_id/comments" => "comments#create", as: "comments_create"
 
 	get 'users/:id' => "users#show", as: "user_show"
+	get "users/:id/edit_permissions" => "users#edit", as: "user_edit"
+	patch "users/:id" => "users#update", as: "user_update"
 
 	root to: "cities#index"
 

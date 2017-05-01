@@ -1,0 +1,20 @@
+<div class="formPage">
+  <h1>Edit Permissions</h1>
+  <div class="formContainer">
+    <h1><%= @user.email %></h1>
+    <%= form_for @user, url: {action: "update"} do |f| %>
+
+        <div class="fieldContainer">
+          <h4><%= f.label :is_admin? %></h4>
+          <%= f.label :is_admin?, "True" %>
+          <%= f.radio_button(:is_admin?, true) %>
+          <%= f.label :is_admin?, "False" %>
+          <%= f.radio_button(:is_admin?, false) %>
+        </div>
+
+      <div class="submitContainer">
+        <%= f.submit class: "submit"%>
+      </div>
+    <% end %>
+  </div>
+</div>
