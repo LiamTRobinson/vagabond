@@ -6,13 +6,16 @@
 </div>
 
 <% @cities.each do |city| %>
-<div class="jumbotron">
-	<div class="container cityBanner" style="background-image: url('<%= city.photo_url %>');">
-		<div class="gradientLeft">
-			<div class="cityName">
-				<h2><%= link_to city.name.upcase, city_path(id: city.friendly_id, order: "newest") %></h2>
+	<div class="jumbotron">
+		<div class="container cityBanner" style="background-image: url('<%= city.photo_url %>');">
+			<div class="gradientLeft">
+				<div class="cityName">
+					<h2><%= link_to city.name.upcase, city_path(id: city.friendly_id, order: "newest") %></h2>
+					<% if user_signed_in? && current_user.is_admin? %>
+						<h3><%= link_to "Edit #{city.name}", edit_city_path(city.id), class: "cityEditButton" %></h3>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 <% end %>

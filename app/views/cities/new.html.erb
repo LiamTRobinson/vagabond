@@ -1,0 +1,30 @@
+<div class="formPage">
+  <h1>New City</h1>
+
+  <div class="formContainer">
+    <%= form_for @city, url: {action: "create"} do |f| %>
+
+      <div class="fieldContainer">
+        <h2><%= f.label :name %></h2>
+        <%= f.text_field :name, class: "field" %>
+      </div>
+
+      <div class="fieldContainer">
+        <h2><%= f.label :photo_url %></h2>
+        <%= f.text_field :photo_url, class: "field" %>
+      </div>
+
+      <div class="submitContainer">
+        <%= f.submit class: "submit" %>
+      </div>
+
+      <% if flash[:errors] %>
+        <div class="notice">
+          <%= flash[:errors] %>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div>
+
+</div>

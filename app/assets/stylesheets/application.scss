@@ -29,6 +29,12 @@ body {
 	background-repeat: no-repeat; /*Prevent showing multiple background images*/
 }
 
+.cityName {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .cityName h2 a {
 	color: white;
 	font-size: 3em;
@@ -40,6 +46,10 @@ body {
 .cityName h2 a:hover {
 	text-shadow: -7px 7px black;
 	transition: 0.4s;
+}
+.cityEditButton {
+	color: red;
+	background: black;
 }
 
 a{

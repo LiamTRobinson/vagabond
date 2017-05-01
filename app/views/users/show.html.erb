@@ -17,27 +17,27 @@
 					<h5><%= pair[:name] %>(x<%= pair[:post_num] %>)</h5>
 				<% end %>
 
-				<% if @user == current_user %>
+				<% if @user == current_user || current_user.is_admin? %>
 					<button class="submit"><%= link_to "Edit Profile", edit_user_registration_path %></button>
 				<% end %>
 			</div>
 		</div>
 		<% if @user == current_user %>
-		<h1>PLANS</h1>
-		<hr>
-		<div class="scrollBox">
-			<% @cities.each do |city| %>
-				<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
-					<h2>Plan for <%= city.name %>:</h2>
-					<ul>
-						<% @user.plan_items.select{|item| item.post.city_id == city.id}.each do |item| %>
-							<li><%= item.post.content %></li>
-						<% end %>
-					</ul>
+			<h1>PLANS</h1>
+			<hr>
+			<div class="scrollBox">
+				<% @cities.each do |city| %>
+					<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
+						<h2>Plan for <%= city.name %>:</h2>
+						<ul>
+							<% @user.plan_items.select{|item| item.post.city_id == city.id}.each do |item| %>
+								<li><%= item.post.content %></li>
+							<% end %>
+						</ul>
+					<% end %>
 				<% end %>
-			<% end %>
+			</div>
 		<% end %>
-		</div>
 
 		<h1>POSTS</h1>
 		<hr>
