@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy, :create, :new, :update]
   def show
     @post = Post.find(params[:id])
-    @city = @post.city  
+    @city = @post.city
   end
 
   def edit
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     city = @post.city.slug
     @post.delete
-    redirect_to "/cities/#{city}"
+    redirect_to "/cities/#{city}?order=newest"
   end
 
   def create
