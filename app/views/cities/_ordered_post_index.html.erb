@@ -1,8 +1,11 @@
+<!-- This is the partial for displaying an individual city's posts -->
 <div class="container cityShowPost" id="<%= post.id %>">
+<!-- A link to the city show page and the number of plans this post has -->
 	<div class="cityShowPostTopRow">
 		<h1><%= link_to post.title, city_post_path(city_id: @city.friendly_id, id: post.id) %></h1>
 		<h3>On <%= post.plan_items.length %> Plans</h3>
 	</div>
+<!-- Number of comments and the add/remove plan button -->
 	<h6 class="commentsAndAddToPlan">
 		<span><%= post.comments.length %> comments</span>
 		<% if user_signed_in? %>
@@ -14,10 +17,12 @@
 		<% end %>
 	</h6>
 	<hr>
+<!-- Post content, truncated -->
 	<p><%= truncate(post.content, length:100) %>
 	<% if post.content.length > 100 %>
 		<strong><%= link_to 'Read more', city_post_path(city_id: @city.friendly_id, id: post.id) %></strong>
 	<% end %>
+<!-- When/by whom Created -->
 	<h4>Created on <%= post.created_at.strftime("%B %d at %I:%M %p") %></h4>
 	<h5>by <%= link_to "#{post.user.email}", user_show_path(post.user.id) %></h5>
 	<h6>(<%= distance_of_time_in_words(Time.now, post.created_at)%> ago)</h6>

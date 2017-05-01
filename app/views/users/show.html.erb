@@ -1,3 +1,5 @@
+<!-- General user info (public/private) -->
+<!-- Public info -->
 <div class="userForm">
 	<% if @user.user_name.nil? %>
 		<h1><%= @user.email %></h1>
@@ -25,6 +27,7 @@
 				<% end %>
 			</div>
 		</div>
+<!-- Private info (user plans) -->
 		<% if @user == current_user %>
 			<h1>PLANS</h1>
 			<hr>
@@ -50,7 +53,7 @@
 				<% end %>
 			</div>
 		<% end %>
-
+<!-- Public (user posts) -->
 		<h1>POSTS</h1>
 		<hr>
 		<div class="scrollBox">

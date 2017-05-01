@@ -8,7 +8,7 @@
 			<%= @post.content %>
 		</div>
 		<h4><%= @post.comments.length %> comments</h4>
-
+<!-- Add/remove plan button if user logged in -->
 		<h6 class="commentsAndAddToPlan">
 			<% if user_signed_in? %>
 				<% if !current_user.plan_items.any? {|item| item.post_id == @post.id} %>
@@ -18,7 +18,7 @@
 				<% end %>
 			<% end %>
 		</h6>
-
+<!-- Edit/delete buttons if this is user's post -->
 		<% if @post.user == current_user %>
 			<div class="edit-delete-section">
 				<%= link_to 'Edit', edit_city_post_path(city_id: @post.city.friendly_id, id: @post.id), class: 'button edit-button' %>
@@ -27,6 +27,7 @@
 				<% end %>
 			</div>
 		<% end %><br>
+<!-- New comment button if user signed in -->
 		<% if user_signed_in? %>
 			<button class="submit"><%= link_to "New Comment", comments_new_path(@post.id), class: "btn btn-success" %></button>
 		<% end %>
@@ -36,7 +37,7 @@
 
 
 	<div class="postShowCommentsContainer">
-
+<!-- Shows all comments for post -->
 		<% @post.comments.each do |comment| %>
 			<div class="cityShowPost postComments">
 				<div class="userPhoto">
