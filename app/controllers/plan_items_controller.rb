@@ -1,4 +1,6 @@
 class PlanItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     page = params[:page]
   	post = Post.find(params[:post_id])
@@ -17,4 +19,17 @@ class PlanItemsController < ApplicationController
     PlanItem.where("user_id = #{current_user.id} and post_id = #{post.id}").first.destroy
   	redirect_to "/cities/#{post.city.id}?page=#{page}&order=#{order}##{post.id}"
   end
+
+  def update
+    plan_item = PlanItem.find(params[:id])
+    plan_item.update(done: post_params[:done])
+    redirect_to "/users/#{plan_item.user_id}"
+  end
+
+  private
+
+  def post_params
+    params.require(:plan_item).permit(:done)
+  end
+
 end

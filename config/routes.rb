@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 	get "users/:id/edit_permissions" => "users#edit", as: "user_edit"
 	patch "users/:id" => "users#update", as: "user_update"
 
+	patch "plan_items/:id" => "plan_items#update", as: "plan_item_update"
+
 	root to: "cities#index"
 
 end

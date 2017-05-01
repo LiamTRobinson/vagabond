@@ -32,11 +32,19 @@
 				<% @cities.each do |city| %>
 					<% if @user.plan_items.any?{|item| item.post.city_id == city.id}%>
 						<h2>Plan for <%= city.name %>:</h2>
-						<ul>
-							<% @user.plan_items.select{|item| item.post.city_id == city.id}.each do |item| %>
-								<li><%= item.post.content %></li>
-							<% end %>
-						</ul>
+						<% @user.plan_items.select{|item| item.post.city_id == city.id}.each do |item| %>
+							<div class="cityShowPost">
+								<div class="planItemsContainer">
+									<p><%= item.post.content %></p>
+									<%= form_for item, url: { controller: "plan_items", action: "update", id: item.id} do |i| %>
+										<%= hidden_field_tag :id, item.id %>
+										<%= i.label :done %>
+										<%= i.check_box :done %>
+										<%= i.submit class: "submit" %>
+									<% end %>
+								</div>
+							</div>
+						<% end %>
 					<% end %>
 				<% end %>
 			</div>
