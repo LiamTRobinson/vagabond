@@ -59,6 +59,14 @@
 					<p><%= post.content %></p>
 					<hr>
 					<p>Posted in: <%= post.city.name.upcase %> on <%= post.created_at.strftime("%b. %Y") %> </p>
+					<% if post.user == current_user %>
+						<div class="edit-delete-section">
+							<%= link_to 'Edit', edit_city_post_path(city_id: post.city.friendly_id, id: post.id), class: 'button edit-button' %>
+							<%= form_for post, url: "/cities/#{post.city.friendly_id}/posts/#{post.id}", method: "DELETE" do |f| %>
+							  <%= f.submit "Delete", data: { confirm: "Are you sure you want to delete #{post.title}?"}, class: 'button delete-button' %>
+							<% end %>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 		</div>
