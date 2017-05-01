@@ -5,7 +5,8 @@ Team Members: Liam Robinson, Randy Galeano, Erin Martin & Dee Davis
 "Traveling tips for fellow vagabonds."
 
 A travel community website for users to share tips (AKA posts) about their favorite locations around the world.
-Initial Requirements: 
+
+Initial Requirements: https://github.com/ATL-WDI-Exercises/project-vagabond
 
 Heroku Link: https://secret-mountain-61936.herokuapp.com/
 
