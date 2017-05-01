@@ -20,10 +20,6 @@
   margin-bottom: 30px;
 }
 
-.submit {
-  padding: 10px;
-}
-
 .btn-success {
   font-size: 13px;
 }
@@ -41,19 +37,20 @@
 
 
 .button, .edit-button {
-    background-color: lightgrey;
-    border: none;
-    padding: 10px 10px;
-    text-align: center;
-    display: inline-block;
-    font-size: 13px;
-    cursor: pointer;
-    border-radius: 6px;
+  background-color: lightgrey;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 6px;
 }
 
 .delete-button {
-    background-color: #ff7f7f;
-    margin-left: 10px;
+  background-color: #ff7f7f;
+  margin-left: 10px;
+  padding-bottom: 12px;
 }
 
 .edit-delete-section {

@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   	cities = @user.cities.select(:name, :id).distinct
   	@cities_and_post_quantity = []
+# We need every city so that a city will show up for user plans
+# whether or not they have made posts in it.
     @cities = City.all
+# This creates an array of the info we need for displaying
+# how many posts a user has made in each city.
   	cities.each do |city|
   		cityname = city[:name]
   		posts = Post.where("user_id = #{@user.id} and city_id = #{city.id}").all

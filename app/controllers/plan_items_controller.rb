@@ -1,6 +1,7 @@
 class PlanItemsController < ApplicationController
   before_action :authenticate_user!
-
+# On this controller, we need to redirect based on the current
+# will_paginate page, post ID, and specified sorting query
   def create
     page = params[:page]
   	post = Post.find(params[:post_id])

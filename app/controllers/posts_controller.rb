@@ -23,7 +23,6 @@ class PostsController < ApplicationController
       user_id: current_user.id
       )
     check_validation(@post)
-    # redirect_to "/cities/#{params[:city_id]}"
   end
 
   def new

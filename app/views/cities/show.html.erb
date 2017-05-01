@@ -5,6 +5,7 @@
 </div>
 
 <div class="posts">
+<!-- Contains paginated links and sorting link -->
 	<div class="postsEnds">
 		<div>
 			<select class="redirect" id="sort-value" data-city="<%= @city.id %>">
@@ -16,7 +17,7 @@
 		</div>
 		<%= will_paginate @posts, class: "pageSelect"%>
 	</div>
-
+<!-- Sorted views -->
 	<% if @order == "newest" %>
 		<% @posts.order(created_at: :desc).each do |post| %>
 			<%= render "ordered_post_index", post: post %>
@@ -34,6 +35,7 @@
 			<%= render "ordered_post_index", post: post %>
 		<% end %>
 	<% end %>
+<!-- JavaScript for sorting link -->
 	<script type="text/javascript">
 		$(function() {
 			$("#sort-button").on("click", function() {
