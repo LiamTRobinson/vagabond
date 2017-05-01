@@ -17,7 +17,10 @@
 
       <% if user_signed_in? %>
         <div class="nav-items-container">
-          <a href="#"><%= link_to "Profile", user_show_path(current_user.id), style: "color: white" %></a>
+          <a href="#"><%= link_to "Profile", user_show_path(current_user.id), style: "color: white;" %></a>
+          <% if current_user.is_admin? %>
+            <a href="#"><%= link_to "New City", new_city_path, style: "color: white;" %></a>
+          <% end %>
         </div>
       <% end %>
 

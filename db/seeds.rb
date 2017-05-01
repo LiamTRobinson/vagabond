@@ -40,7 +40,7 @@ user3 = User.create(
 	profile_picture_url: "http://i3.kym-cdn.com/entries/icons/original/000/019/616/41584.jpg"
 	)
 admin = User.create(
-	email: "admin@amin.com",
+	email: "admin@admin.com",
 	password: "password",
 	is_admin?: true
 	)

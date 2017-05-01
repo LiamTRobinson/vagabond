@@ -1,0 +1,22 @@
+<div class="formPage">
+  <h1>Edit City</h1>
+  <div class="formContainer">
+    <h1><%= @city.name %></h1>
+    <%= form_for @city, url: {action: "update"} do |f| %>
+      <div class="fieldContainer">
+        <h2><%= f.label :photo_url %></h2>
+        <%= f.text_field :photo_url, class: "field" %>
+      </div>
+
+      <div class="fieldContainer">
+        <h2><%= f.label :name %></h2>
+        <%= f.text_field :name, class: "field" %>
+      </div>
+
+      <div class="submitContainer">
+        <%= f.submit class: "submit"%>
+      </div>
+    <% end %>
+    <%= button_to "Delete #{@city.name}", "/cities/#{@city.id}", method: "delete", class: "delete" %>
+  </div>
+</div>

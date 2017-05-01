@@ -1,6 +1,6 @@
 <style>
   body {
-    height: 100vh;
+    min-height: 100vh;
   }
 </style>
 <div class="formPage">
@@ -18,6 +18,11 @@
       <div class="fieldContainer">
         <h4><%= f.label :profile_picture_url %></h4>
         <%= f.text_field :profile_picture_url %>
+      </div>
+
+      <div class="fieldContainer">
+        <h4><%= f.label :user_name %></h4>
+        <%= f.text_field :user_name, class: "field"%>
       </div>      
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -38,6 +43,15 @@
         <h4><%= f.label :confirm_old_password %></h4>
         <%= f.password_field :current_password, autocomplete: "off", class: "field" %>
       </div>
+      <% if current_user.is_admin? %>
+        <div class="fieldContainer">
+          <h4><%= f.label :is_admin? %></h4>
+          <%= f.label :is_admin?, "True" %>
+          <%= f.radio_button(:is_admin?, true) %>
+          <%= f.label :is_admin?, "False" %>
+          <%= f.radio_button(:is_admin?, false) %>
+        </div>
+      <% end %>
 
       <div class="submitContainer">
         <button class="submit"><%= f.submit "Update", class: "submit" %></button>
