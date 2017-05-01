@@ -9,7 +9,11 @@ class PlanItemsController < ApplicationController
   		user_id: current_user.id,
   		post_id: post.id
   		)
-  	redirect_to "/cities/#{post.city.id}?page=#{page}&order=#{order}##{post.id}"
+  	if (order == "show")
+      redirect_to "/cities/#{post.city.id}/posts/#{post.id}"
+    else
+      redirect_to "/cities/#{post.city.id}?page=#{page}&order=#{order}##{post.id}"
+    end
   end
 
   def destroy
@@ -17,7 +21,11 @@ class PlanItemsController < ApplicationController
     post = Post.find(params[:post_id])
     order = params[:order]
     PlanItem.where("user_id = #{current_user.id} and post_id = #{post.id}").first.destroy
-  	redirect_to "/cities/#{post.city.id}?page=#{page}&order=#{order}##{post.id}"
+    if (order == "show")
+      redirect_to "/cities/#{post.city.id}/posts/#{post.id}"
+    else
+  	  redirect_to "/cities/#{post.city.id}?page=#{page}&order=#{order}##{post.id}"
+    end
   end
 
   def update

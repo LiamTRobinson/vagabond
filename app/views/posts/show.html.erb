@@ -9,6 +9,16 @@
 		</div>
 		<h4><%= @post.comments.length %> comments</h4>
 
+		<h6 class="commentsAndAddToPlan">
+			<% if user_signed_in? %>
+				<% if !current_user.plan_items.any? {|item| item.post_id == @post.id} %>
+					<span><%= link_to "Add To City Plan", "/posts/#{@post.id}/plan_items/create/show/show", method: "post" %></span>
+				<% else %>
+					<span><%= link_to "Remove From City Plan", "/posts/#{@post.id}/plan_items/destroy/show/show", method: "delete" %></span>
+				<% end %>
+			<% end %>
+		</h6>
+
 		<% if @post.user == current_user %>
 			<div class="edit-delete-section">
 				<%= link_to 'Edit', edit_city_post_path(city_id: @post.city.friendly_id, id: @post.id), class: 'button edit-button' %>
