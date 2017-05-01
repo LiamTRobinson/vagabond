@@ -266,7 +266,7 @@ Post.create(
 	)
 Post.create(
 	title: "Hash Browns",
-	content: "Everything at Chauncey's is terrible except the hash browns.  They are the best."
+	content: "Everything at Chauncey's is terrible except the hash browns.  They are the best.",
 	user_id: user1.id,
 	city_id: city2.id
 	)
@@ -362,14 +362,14 @@ Post.create(
 	)
 Post.create(
 	title: "Good Fishing",
-	content: "Found a good fishing spot at Border Beach. Head out near the southeast bouy."
+	content: "Found a good fishing spot at Border Beach. Head out near the southeast bouy.",
 	user_id: user3.id,
 	city_id: city3.id
 	)
 Post.create(
 	title: "Old Water Tower",
 	content: "Cool scenes at the old water tower to the south.",
-	user_id: Old Water Toweruser3.id,
+	user_id: user1.id,
 	city_id: city1.id
 	)
 Post.create(
@@ -387,7 +387,7 @@ Post.create(
 Post.create(
 	title: "Great Kite Flying",
 	content: "Big open field east of North Market, great winds for putting a kite up in the air.",
-	user_id: user1.id,
+	user_id: user2.id,
 	city_id: city1.id
 	)
 Post.create(
@@ -405,7 +405,7 @@ Post.create(
 Post.create(
 	title: "Dog Park",
 	content: "Take your dog out to the dog park on boulevard on a Thursday for some free dog treats and on tuesday there is a cool trainer with free short sessions.",
-	user_id: user2.id,
+	user_id: user3.id,
 	city_id: city1.id
 	)
 Post.create(
@@ -423,7 +423,7 @@ Post.create(
 Post.create(
 	title: "Butterflies",
 	content: "Weatherly Park has a small patch of flowers to the south that attracts some rare butterfly species native to the region.  Take some pictures while your there!",
-	user_id: user3.id,
+	user_id: user1.id,
 	city_id: city1.id
 	)
 
