@@ -33,7 +33,7 @@ class CitiesController < ApplicationController
   end
 
   def update
-    city = City.find(parmams[:id])
+    city = City.find(params[:id])
     city.update(post_params)
     redirect_to "/cities/#{city.friendly_id}?order=newest"
   end
